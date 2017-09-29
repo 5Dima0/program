@@ -1,0 +1,30 @@
+#include <iostream>
+#include <sstream>
+
+int main()
+{   int x;
+    int max;
+    for( std::string string; std::getline( std::cin, string ); ) {
+        int numbers[ 10 ];
+        std::istringstream stream( string );
+        bool failure = false;
+        for( int x = 0; x < 10; ++x ) {
+            if( !( stream >> numbers[ x ] ) ) {
+                failure = true;
+                break;
+            }
+        }
+        
+        max = numbers[0];
+        for (x=1; x<10; ++x) {
+        if (max < numbers[x]) max = numbers[x];
+        }
+        
+        if( !failure ) {
+                std::cout << max << " ";
+            }
+        else {
+            std::cout << " error " << std::endl;
+        }
+    }
+}
